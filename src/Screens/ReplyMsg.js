@@ -6,8 +6,19 @@ class ReplyMsg extends Component {
         return (
             <div className="ReplyMsg">
                 ReplyMsg
-                <div onClick={() => this.props.goTo(null)}> Back</div>
-                <div onClick={() => this.props.goTo("Inbox")}> Send</div>
+                <div className="header">
+                    <div className="header-close" onClick={() => this.props.goTo(null)}> Back</div>
+                    <div className="header-send" onClick={() => this.props.goTo("Inbox")}> Send</div>
+                </div>
+                <div className="ReplyMsg-content">
+                    <div className="msg-row">To:</div>
+                    <div className="msg-row">CC/Bcc:</div>
+                    <div className="msg-row">Subject:</div>
+                    <div className="msg-previous">
+                        That works!
+                    </div>
+
+                </div>
             </div>
         );
     }

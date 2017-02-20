@@ -13,6 +13,7 @@ import ViewAttach from './Screens/ViewAttach';
 var Sidebar = require('react-sidebar').default;
 
 
+const sidestyles = {zIndex: 2};
 class App extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +24,8 @@ class App extends Component {
             previous: null,
             sidebarOpen: false
         };
-        console.log("App started for use by user blah");
+        // console.log("App started fodkjdddddddddddddd " +
+        //     "kkkkkkkkkkkkkkkkkkfa;sdkfiasjdf;asdfblah");
     }
 
     onSetSidebarOpen(open) {
@@ -34,32 +36,32 @@ class App extends Component {
         var selected = null;
         switch (page) {
             case "OpenMsg":
-                selected = <OpenMsg goTo={this.goTo.bind(this)}/>;
+                selected = <div><OpenMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "Inbox":
                 selected = <div>
                     <Inbox openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "AttachPhoto":
-                selected = <AttachPhoto goTo={this.goTo.bind(this)}/>;
+                selected = <div><AttachPhoto goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "FwdMsg":
-                selected = <FwdMsg goTo={this.goTo.bind(this)}/>;
+                selected = <div><FwdMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "MoveMsg":
-                selected = <MoveMsg goTo={this.goTo.bind(this)}/>;
+                selected = <div><MoveMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "NewMsg":
-                selected = <NewMsg goTo={this.goTo.bind(this)}/>;
+                selected = <div><NewMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "Preview":
-                selected = <Preview goTo={this.goTo.bind(this)}/>;
+                selected = <div><Preview goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "ReplyMsg":
-                selected = <ReplyMsg goTo={this.goTo.bind(this)}/>;
+                selected = <div><ReplyMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "ViewAttach":
-                selected = <ViewAttach goTo={this.goTo.bind(this)}/>;
+                selected = <div><ViewAttach goTo={this.goTo.bind(this)}/></div>;
                 break;
             default:
                 selected = this.state.previous;
@@ -76,13 +78,14 @@ class App extends Component {
 
 
     render() {
-        var sidebarContent = <b>Sidebar content</b>;
+        var sidebarContent = <div className="sidebar">Sidebar content</div>;
         return (
             <div className="App">
 
-                <Sidebar sidebar={sidebarContent}
+                <Sidebar className="sidebar" sidebar={sidebarContent}
                          open={this.state.sidebarOpen}
-                         onSetOpen={this.onSetSidebarOpen.bind(this)}>
+                         onSetOpen={this.onSetSidebarOpen.bind(this)}
+                         styles={sidestyles}>
                     {this.checkPage() }
                 </Sidebar>
 

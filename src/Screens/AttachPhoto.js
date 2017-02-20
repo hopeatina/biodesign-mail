@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../App.css';
 
 class AttachPhoto extends Component {
@@ -6,8 +6,14 @@ class AttachPhoto extends Component {
         return (
             <div className="inbox">
                 Inbox
-                <div onClick={() => this.props.goTo("NewMsg")}> Back</div>
-                <div onClick={() => this.props.goTo("Preview")}> Preview</div>
+                <div className="header">
+                    <div className="header-title"> Photo Roll</div>
+                    <div className="header-cancel" onClick={() => this.props.goTo("NewMsg")}> Back</div>
+                </div>
+
+                <div className="photo-grid">
+                    <div className="photo-grid-item" onClick={() => this.props.goTo("Preview")}> Preview</div>
+                </div>
             </div>
         );
     }
