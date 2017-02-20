@@ -13,7 +13,13 @@ import ViewAttach from './Screens/ViewAttach';
 var Sidebar = require('react-sidebar').default;
 
 
-const sidestyles = {zIndex: 2};
+const sidestyles = {
+    root: {zIndex: 2},
+    content: {zIndex: 2},
+    sidebar: {zIndex: 2},
+    overlay: {zIndex: 2},
+    dragHandle: {zIndex: 2},
+};
 class App extends Component {
     constructor(props) {
         super(props);
@@ -24,8 +30,8 @@ class App extends Component {
             previous: null,
             sidebarOpen: false
         };
-        // console.log("App started fodkjdddddddddddddd " +
-        //     "kkkkkkkkkkkkkkkkkkfa;sdkfiasjdf;asdfblah");
+        console.log("App started fodkjdddddddddddddd " +
+            "kkkkkkkkkkkkkkkkkkfa;sdkfiasjdf;asdfblah");
     }
 
     onSetSidebarOpen(open) {
@@ -36,32 +42,32 @@ class App extends Component {
         var selected = null;
         switch (page) {
             case "OpenMsg":
-                selected = <div><OpenMsg goTo={this.goTo.bind(this)}/></div>;
+                selected = <div className="wrap-div"><OpenMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "Inbox":
                 selected = <div>
                     <Inbox openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "AttachPhoto":
-                selected = <div><AttachPhoto goTo={this.goTo.bind(this)}/></div>;
+                selected = <div className="wrap-div"><AttachPhoto goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "FwdMsg":
-                selected = <div><FwdMsg goTo={this.goTo.bind(this)}/></div>;
+                selected = <div className="wrap-div"><FwdMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "MoveMsg":
-                selected = <div><MoveMsg goTo={this.goTo.bind(this)}/></div>;
+                selected = <div className="wrap-div"><MoveMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "NewMsg":
-                selected = <div><NewMsg goTo={this.goTo.bind(this)}/></div>;
+                selected = <div className="wrap-div"><NewMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "Preview":
-                selected = <div><Preview goTo={this.goTo.bind(this)}/></div>;
+                selected = <div className="wrap-div"><Preview goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "ReplyMsg":
-                selected = <div><ReplyMsg goTo={this.goTo.bind(this)}/></div>;
+                selected = <div className="wrap-div"><ReplyMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "ViewAttach":
-                selected = <div><ViewAttach goTo={this.goTo.bind(this)}/></div>;
+                selected = <div className="wrap-div"><ViewAttach goTo={this.goTo.bind(this)}/></div>;
                 break;
             default:
                 selected = this.state.previous;

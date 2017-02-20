@@ -1,8 +1,12 @@
+.wrap-div {
+    height: 100%;
+}
+
 .sidebar {
     background: #34313a;
     height: 100%;
     color: #9e98a9;
-    width: 200px;
+    width: 250px;
     z-index: 2;
 }
 
@@ -35,7 +39,7 @@
     margin-left: 20px;
 }
 
-.header-send, .header-createmsg {
+.header-send, .header-createmsg, .header-cancel {
     margin-right: 20px;
 }
 
@@ -106,6 +110,10 @@
     display: flex;
 }
 
+.search:focus, .search-input:focus, .create-input:focus, .contact-input:focus {
+    outline: none;
+}
+
 .search-icon {
     height: 30px;
     width: 30px;
@@ -134,7 +142,8 @@
 .search-input {
     float: left;
     background: transparent;
-    min-width: 150px;
+    min-width: 205px;
+    height: 100%;
     display: flex;
     color: #878787;
     margin-top: auto;
@@ -146,7 +155,7 @@
 
 .msg-read {
     height: 30px;
-    width: 30px;
+    min-width: 30px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -233,6 +242,12 @@
 .attachment {
     height: 100%;
     background: dodgerblue;
+    min-height: 73%;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    margin-left: 20px;
+    background: dodgerblue;
+    margin-right: 20px;
 }
 
 .Inbox {
@@ -243,11 +258,65 @@
 .Inbox-content {
     position: relative;
     top: 70px;
+    z-index: 0;
+}
+
+.create-front {
+    margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: darkgrey;
+    float: left;
+    font-size: 18px;
+}
+
+.create-input {
+    float: left;
+    background: transparent;
+    min-width: 150px;
+    display: flex;
+    color: #878787;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+
+.create-cc {
+
+}
+
+.create-subject {
+
+}
+
+.create-subject-cont {
+
+}
+
+.create-attach-icon {
+
+}
+
+.create-big-input {
+
+}
+
+.attach {
+    float: right;
+    display: flex;
+    margin-right: 20px;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .OpenMsg-content, .NewMsg-content, .ReplyMsg-content, .header-dropdown {
     position: relative;
     top: 47px;
+    z-index: 0;
 }
 
 .inbox-message {
@@ -257,14 +326,99 @@
     display: flex;
 }
 
+.contact-input {
+    max-width: 150px;
+    float: left;
+    background: transparent;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto ;
+    margin-left: 20px;
+    font-size: 16px;
+    border: none;
+}
+
+.contact-chip {
+    min-width: 90px;
+    height: 40px;
+    line-height: 40px;
+    justify-content: center;
+    font-size: 16px;
+    border-radius: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    margin-left: 10px;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    background: dodgerblue;
+}
+
 .msg-row {
     height: 50px;
     width: 100%;
     border-bottom: solid 2px #e9eaeb;
+    justify-content: flex-start;
+    display: flex;
 }
 
 .msg-previous {
-    width: 100%;
+    max-width: 100%;
+    margin: 20px;
+}
+
+.msg-contact-item {
+    height: 60px;
+    display: flex;
+    background: #f2f2f2;
+    border-bottom: solid 1px #e9eaeb;
+
+}
+
+.msg-contacts {
+    height: 120px;
+    border-bottom: solid 2px #e9eaeb;
+}
+
+.msg-contact-icon {
+    height: 50px;
+    width: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    background: dodgerblue;
+    display: flex;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.msg-contact-col2 {
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.msg-contact-name {
+    font-size: 14px;
+    line-height: 14px;
+    height: 14px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+}
+
+.msg-contact-email {
+    font-size: 14px;
+    line-height: 100%;
+    height: 50%;
 }
 
 .ViewAttach {

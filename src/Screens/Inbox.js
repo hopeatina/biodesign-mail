@@ -22,7 +22,9 @@ class Inbox extends Component {
         this.setState({
             msgdelete: !this.state.msgdelete
         });
-        console.log('REMOVED MESSAGE SON');
+        console.log('REMOVED MESSAGE ' +
+            'and it sucks please' +
+            'respect me');
     }
 
     delete() {
@@ -65,9 +67,9 @@ class Inbox extends Component {
                             <div className="msg-text"> This is sample intro text</div>
                         </div>
                     </div>
-                    { this.state.removed ? null : <div className="inbox-message" onClick={() => this.removeMsg()}>
+                    { this.state.removed ? null : <div className="inbox-message">
                         <div className="msg-read"></div>
-                        <div className="msg-inbox-container">
+                        <div className="msg-inbox-container" onClick={() => this.removeMsg()}>
                             <div className="msg-row1">
                                 <div className="msg-from">Delete, You, Her</div>
                                 <div className="msg-time">14:39</div>
@@ -76,7 +78,7 @@ class Inbox extends Component {
                             <div className="msg-text"> This is sample intro text</div>
                         </div>
                         { this.state.msgdelete ?
-                            <div onClick={this.delete()} className="inbox-delete"> Delete</div> : null }
+                            <div onClick={() => this.delete()} className="inbox-delete"> Delete</div> : null }
                     </div>}
                     <div className="inbox-message" onClick={() => this.props.goTo("OpenMsg")}>
                         <div className="msg-read"></div>
