@@ -14,31 +14,29 @@ var Sidebar = require('react-sidebar').default;
 
 
 const sidestyles = {
-    root: {zIndex: 2},
-    content: {zIndex: 2},
-    sidebar: {zIndex: 2},
-    overlay: {zIndex: 2},
-    dragHandle: {zIndex: 2},
+    root: {zIndex: 5},
+    content: {zIndex: 5},
+    sidebar: {zIndex: 5},
+    overlay: {zIndex: 5},
+    dragHandle: {zIndex: 5},
 };
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            current: <div>
+            current: <div className="wrap-div">
                 <Inbox openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/>
             </div>,
             previous: null,
             sidebarOpen: false
         };
-        console.log("App started fodkjdddddddddddddd " +
-            "kkkkkkkkkkkkkkkkkkfa;sdkfiasjdf;asdfblah");
     }
 
     onSetSidebarOpen(open) {
         this.setState({sidebarOpen: open});
     }
 
-    goTo(page) {
+    goTo(page, data) {
         var selected = null;
         switch (page) {
             case "OpenMsg":
@@ -58,7 +56,7 @@ class App extends Component {
                 selected = <div className="wrap-div"><MoveMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "NewMsg":
-                selected = <div className="wrap-div"><NewMsg goTo={this.goTo.bind(this)}/></div>;
+                selected = <div showAttach={data} className="wrap-div"><NewMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "Preview":
                 selected = <div className="wrap-div"><Preview goTo={this.goTo.bind(this)}/></div>;
@@ -90,8 +88,7 @@ class App extends Component {
 
                 <Sidebar className="sidebar" sidebar={sidebarContent}
                          open={this.state.sidebarOpen}
-                         onSetOpen={this.onSetSidebarOpen.bind(this)}
-                         styles={sidestyles}>
+                         onSetOpen={this.onSetSidebarOpen.bind(this)}>
                     {this.checkPage() }
                 </Sidebar>
 

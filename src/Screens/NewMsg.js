@@ -9,9 +9,15 @@ class NewMsg extends Component {
             subjvalue: ' ',
             ccvalue: ' ',
             tovalue: ' ',
+            bigvalue: ' ',
             showto: false,
             showchip: false
         };
+    }
+
+    handleBigChange(event) {
+        console.log(event);
+        this.setState({bigvalue: event.target.value});
     }
 
     handleToChange(event) {
@@ -31,16 +37,16 @@ class NewMsg extends Component {
 
     toggleSelection(choice) {
 
-        if (choice == 'show')
-        {
+        if (choice == 'show') {
             this.setState({
                 showto: true
             });
-        } if (choice == 'close') {
+        }
+        if (choice == 'close') {
             this.setState({
                 showto: false
             })
-        } else{
+        } else {
             this.setState({
                 showto: !this.state.showto
             })
@@ -107,10 +113,8 @@ class NewMsg extends Component {
                                className="create-input"></input>
                         <div className="attach" onClick={() => this.props.goTo("AttachPhoto")}>Attach</div>
                     </div>
-                    <div className="msg-previous">
-                        That works!
-                    </div>
-
+                    { this.props.showAttach ? <div className="NewMsg-attachment" > </div> : null }
+                    <textarea value={this.state.bigvalue} onChange={this.handleBigChange} className="msg-previous"></textarea>
                 </div>
             </div>
         );

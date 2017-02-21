@@ -1,5 +1,10 @@
 .wrap-div {
     height: 100%;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease ;
+    -ms-transition: all .5s ease ;
+    -o-transition: all .5s ease ;
+    transition: all .5s ease ;
 }
 
 .sidebar {
@@ -7,7 +12,7 @@
     height: 100%;
     color: #9e98a9;
     width: 250px;
-    z-index: 2;
+    z-index: 5;
 }
 
 .header {
@@ -110,7 +115,8 @@
     display: flex;
 }
 
-.search:focus, .search-input:focus, .create-input:focus, .contact-input:focus {
+.search:focus, .search-input:focus, .create-input:focus,
+.contact-input:focus, .msg-previous:focus {
     outline: none;
 }
 
@@ -234,9 +240,15 @@
     text-align: center;
 }
 
-.ViewAttach, .AttachPhoto, .NewMsg, .FwdMsg, .MoveMsg, .Preview, .ReplyMsg, .ViewAttach {
+.ViewAttach, .AttachPhoto, .NewMsg, .FwdMsg,
+.MoveMsg, .Preview, .ReplyMsg, .ViewAttach {
     height: 100%;
     position: relative;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease ;
+    -ms-transition: all .5s ease ;
+    -o-transition: all .5s ease ;
+    transition: all .5s ease ;
 }
 
 .attachment {
@@ -313,7 +325,8 @@
     margin-bottom: auto;
 }
 
-.OpenMsg-content, .NewMsg-content, .ReplyMsg-content, .header-dropdown {
+.OpenMsg-content, .NewMsg-content, .ReplyMsg-content,
+.header-dropdown, .photo-grid, .preview-image{
     position: relative;
     top: 47px;
     z-index: 0;
@@ -365,7 +378,9 @@
 }
 
 .msg-previous {
-    max-width: 100%;
+    min-width: 300px;
+    border: none;
+    min-height: 50%;
     margin: 20px;
 }
 
@@ -421,18 +436,31 @@
     height: 50%;
 }
 
-.ViewAttach {
-    height: 100%;
+.photo-grid-item {
+    height: 90px;
+    width: 21%;
+    float: left;
+    margin: 2%;
+}
+
+.preview-content {
+    height: 475px;
+    width: 80%;
+    background: red;
+    margin: 10%;
 }
 
 .ViewAttach {
     height: 100%;
 }
 
-.ViewAttach {
-    height: 100%;
-}
-
-.ViewAttach {
-    height: 100%;
+.NewMsg-attachment {
+    height: 50px;
+    width: 80%;
+    margin: auto;
+    border: solid 1px grey ;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: tan;
 }
