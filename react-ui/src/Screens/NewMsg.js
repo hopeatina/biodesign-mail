@@ -108,8 +108,8 @@ class NewMsg extends Component {
                     </div>
                     <div className="msg-row">
                         <div className="create-front"> Subject:</div>
-                        <input type="text" name="Subject" title="Subject" value={this.props.value}
-                               onChange={this.props.handlers}
+                        <input type="text" name="Subject" title="Subject" value={this.state.subjvalue}
+                               onChange={this.handleSubjChange.bind(this)}
                                className="create-input"></input>
                         <div className="attach" onClick={() => this.props.goTo("AttachPhoto")}>Attach</div>
                     </div>

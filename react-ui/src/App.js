@@ -32,7 +32,6 @@ class App extends Component {
             sidebarOpen: false,
             subjvalue: ' '
         };
-        this.handleSubjChange = this.handleSubjChange.bind(this);
     }
 
     onSetSidebarOpen(open) {
@@ -43,14 +42,13 @@ class App extends Component {
         this.goTo("NewMsg", false);
     }
 
-    handleSubjChange(event) {
-        console.log(this.state);
-        this.setState({subjvalue: event.target.value});
-    }
+    // handleSubjChange = (event) => {
+    //     value={this.state.subjvalue}
+    //     handlers={this.handleSubjChange}
+    //     this.setState({subjvalue: event.target.value});
+    // };
 
     goTo(page, data) {
-
-        console.log(this.state);
         var selected = null;
         switch (page) {
             case "OpenMsg":
@@ -71,8 +69,7 @@ class App extends Component {
                 break;
             case "NewMsg":
                 selected =
-                    <div className="wrap-div"><NewMsg value={this.state.subjvalue}
-                                                      handlers={this.handleSubjChange}
+                    <div className="wrap-div"><NewMsg
                                                       removeAttachment={this.removeAttachment.bind(this)}
                                                       showAttach={data} goTo={this.goTo.bind(this)}/></div>;
                 break;

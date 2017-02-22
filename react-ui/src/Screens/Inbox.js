@@ -23,9 +23,6 @@ class Inbox extends Component {
         this.setState({
             msgdelete: !this.state.msgdelete
         });
-        console.log('REMOVED MESSAGE ' +
-            'and it sucks please' +
-            'respect me');
     }
 
     delete() {
@@ -48,7 +45,6 @@ class Inbox extends Component {
                 searchclicked: true
             })
         }
-
         console.log("Toggled search");
     }
 
@@ -64,7 +60,7 @@ class Inbox extends Component {
                     <div className="search">
                         <div className="search-icon" onClick={() => this.toggleSearch(true)}></div>
                         <input onClick={() => this.toggleSearch(true)} value={this.state.value}
-                               onChange={this.handleChange}
+                               onChange={this.handleChange.bind(this)}
                                className="search-input" placeholder="Search"></input>
                         { this.state.search ?
                             <div className="search-close" onClick={() => this.toggleSearch(false)}></div> : null }
