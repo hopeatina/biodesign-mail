@@ -13,25 +13,25 @@ class NewMsg extends Component {
             showto: false,
             showchip: false
         };
+        // this.handleSubjChange = this.handleSubjChange.bind(this);
+        // this.handleBigChange = this.handleBigChange.bind(this);
+        // this.handleCcChange = this.handleCcChange(this);
+        // this.handleToChange = this.handleToChange.bind(this);
     }
 
     handleBigChange(event) {
-        console.log(event);
         this.setState({bigvalue: event.target.value});
     }
 
     handleToChange(event) {
-        console.log(event);
         this.setState({tovalue: event.target.value});
     }
 
     handleCcChange(event) {
-        console.log(event);
         this.setState({ccvalue: event.target.value});
     }
 
     handleSubjChange(event) {
-        console.log(event);
         this.setState({subjvalue: event.target.value});
     }
 
@@ -69,7 +69,6 @@ class NewMsg extends Component {
     render() {
         return (
             <div className="NewMsg">
-                NewMsg
                 <div className="header">
                     <div className="header-close" onClick={() => this.props.goTo("Inbox")}> Close</div>
                     <div className="header-send" onClick={() => this.props.goTo("Inbox")}> Send</div>
@@ -79,7 +78,7 @@ class NewMsg extends Component {
                         <div className="create-front"> To:</div>
                         { this.state.showchip ?
                             <div onClick={ () => this.hideChip()} className="contact-chip"> Person 1</div> : null }
-                        <input value={this.state.tovalue} onChange={this.handleToChange}
+                        <input value={this.state.tovalue} onChange={this.handleToChange.bind(this)}
                                className="contact-input"></input>
                         <div className="attach" onClick={() => this.toggleSelection('')}> +</div>
                     </div>
@@ -104,21 +103,34 @@ class NewMsg extends Component {
 
                     <div className="msg-row">
                         <div className="create-front"> Cc/Bcc:</div>
-                        <input value={this.state.ccvalue} onChange={this.handleCcChange}
+                        <input value={this.state.ccvalue} onChange={this.handleCcChange.bind(this)}
                                className="create-input"></input>
                     </div>
                     <div className="msg-row">
                         <div className="create-front"> Subject:</div>
-                        <input value={this.state.subjvalue} onChange={this.handleSubjChange}
+                        <input type="text" name="Subject" title="Subject" value={this.props.value}
+                               onChange={this.props.handlers}
                                className="create-input"></input>
                         <div className="attach" onClick={() => this.props.goTo("AttachPhoto")}>Attach</div>
                     </div>
-                    { this.props.showAttach ? <div className="NewMsg-attachment" > </div> : null }
-                    <textarea value={this.state.bigvalue} onChange={this.handleBigChange} className="msg-previous"></textarea>
+                    { this.props.showAttach ? <div className="NewMsg-attachment">
+                        <div className="attached-pic"></div>
+                        <div className="attached-col2">
+                            <div className="attach-row">wallpaper.png - 32.9K</div>
+                            <div className="attach-row">Attached</div>
+                        </div>
+                        <div onClick={() => this.props.removeAttachment() } className="attach-x">X</div>
+                    </div> : null }
+                    <textarea value={this.state.bigvalue} onChange={this.handleBigChange.bind(this)}
+                              className="msg-previous"></textarea>
                 </div>
             </div>
         );
     }
 }
+
+NewMsg.propTypes = {
+    handlers: React.PropTypes.func,
+};
 
 export default NewMsg;

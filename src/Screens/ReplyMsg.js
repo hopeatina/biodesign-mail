@@ -5,7 +5,6 @@ class ReplyMsg extends Component {
     render() {
         return (
             <div className="ReplyMsg">
-                ReplyMsg
                 <div className="header">
                     <div className="header-close" onClick={() => this.props.goTo(null)}> Back</div>
                     <div className="header-send" onClick={() => this.props.goTo("Inbox")}> Send</div>

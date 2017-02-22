@@ -11,6 +11,7 @@ import Preview from './Screens/Preview';
 import ReplyMsg from './Screens/ReplyMsg';
 import ViewAttach from './Screens/ViewAttach';
 var Sidebar = require('react-sidebar').default;
+import SideContent from './Screens/SideBar'
 
 
 const sidestyles = {
@@ -28,15 +29,28 @@ class App extends Component {
                 <Inbox openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/>
             </div>,
             previous: null,
-            sidebarOpen: false
+            sidebarOpen: false,
+            subjvalue: ' '
         };
+        this.handleSubjChange = this.handleSubjChange.bind(this);
     }
 
     onSetSidebarOpen(open) {
         this.setState({sidebarOpen: open});
     }
 
+    removeAttachment() {
+        this.goTo("NewMsg", false);
+    }
+
+    handleSubjChange(event) {
+        console.log(this.state);
+        this.setState({subjvalue: event.target.value});
+    }
+
     goTo(page, data) {
+
+        console.log(this.state);
         var selected = null;
         switch (page) {
             case "OpenMsg":
@@ -56,7 +70,11 @@ class App extends Component {
                 selected = <div className="wrap-div"><MoveMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "NewMsg":
-                selected = <div showAttach={data} className="wrap-div"><NewMsg goTo={this.goTo.bind(this)}/></div>;
+                selected =
+                    <div className="wrap-div"><NewMsg value={this.state.subjvalue}
+                                                      handlers={this.handleSubjChange}
+                                                      removeAttachment={this.removeAttachment.bind(this)}
+                                                      showAttach={data} goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "Preview":
                 selected = <div className="wrap-div"><Preview goTo={this.goTo.bind(this)}/></div>;
@@ -82,7 +100,7 @@ class App extends Component {
 
 
     render() {
-        var sidebarContent = <div className="sidebar">Sidebar content</div>;
+        var sidebarContent = <SideContent/>;
         return (
             <div className="App">
 

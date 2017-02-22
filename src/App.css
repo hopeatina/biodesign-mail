@@ -1,10 +1,7 @@
 .wrap-div {
     height: 100%;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease ;
-    -ms-transition: all .5s ease ;
-    -o-transition: all .5s ease ;
-    transition: all .5s ease ;
+
+    /*animation-delay: 2s;*/
 }
 
 .sidebar {
@@ -12,7 +9,28 @@
     height: 100%;
     color: #9e98a9;
     width: 250px;
+    justify-content: center;
     z-index: 5;
+}
+
+.side-header {
+    height: 40px;
+    background: #3b3841;
+    color: #6e6976;
+    padding-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 40px;
+    font-size: 15px;
+}
+
+.side-item {
+    color: #6e6976;
+    padding-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 40px;
+    line-height: 40px;
 }
 
 .header {
@@ -25,6 +43,8 @@
     left: 0px;
     background: #e9eaeb;
     z-index: 1;
+    -webkit-animation: slide 0.5s alternate;
+    animation: slide 0.5s alternate;
 }
 
 .header-title {
@@ -34,7 +54,15 @@
     margin: auto;
 }
 
-.header-sidebar, .header-arrow, .header-close, .header-send, .header-cancel, .header-icon {
+.header-icon {
+    height: 40px;
+    width: 40px;
+    background: dodgerblue;
+    margin-right: 20px;
+}
+
+.header-sidebar, .header-arrow, .header-close,
+.header-send, .header-cancel, .header-icon {
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
@@ -88,6 +116,15 @@
     color: white;
     display: flex;
     justify-content: space-around;
+    position: fixed;
+    top: 70px;
+    z-index: 0;
+}
+
+.header-col2 {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .footer {
@@ -95,16 +132,32 @@
     width: 100%;
     position: fixed;
     bottom: 0px;
-    left: 0px;
+    /* margin-top: auto; */
+    /* margin-bottom: auto; */
+    /* left: 0px; */
+    /* display: -webkit-box; */
+    /* display: -webkit-flex; */
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    left: 0px;
+    /* -webkit-box-pack: justify; */
+    /* -webkit-justify-content: space-between; */
+    -ms-flex-pack: justify;
+    justify-content: flex-end;
+    /* left: 0px; */
     background: #e9eaeb;
 }
 
 .footer-icon {
     height: 50px;
     width: 50px;
+    /* justify-content: center; */
+    /* flex: 1; */
+    margin-right: 20px;
+    /* margin: auto; */
+    margin-top: auto;
+    margin-bottom: auto;
+    /* float: right; */
+    background: grey;
 }
 
 .search {
@@ -148,6 +201,7 @@
 .search-input {
     float: left;
     background: transparent;
+    flex: 1;
     min-width: 205px;
     height: 100%;
     display: flex;
@@ -240,22 +294,19 @@
     text-align: center;
 }
 
-.ViewAttach, .AttachPhoto, .NewMsg, .FwdMsg,
-.MoveMsg, .Preview, .ReplyMsg, .ViewAttach {
+.ViewAttach, .AttachPhoto, .NewMsg, .FwdMsg, .OpenMsg,
+.MoveMsg, .Preview, .ReplyMsg, .ViewAttach, .Inbox {
     height: 100%;
     position: relative;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease ;
-    -ms-transition: all .5s ease ;
-    -o-transition: all .5s ease ;
-    transition: all .5s ease ;
+    -webkit-animation: slide 0.5s alternate;
+    animation: slide 0.5s alternate;
 }
 
-.attachment {
-    height: 100%;
+.Attachment {
+    height: 67%;
     background: dodgerblue;
     min-height: 73%;
-    margin-top: 90px;
+    margin-top: 20px;
     margin-bottom: 90px;
     margin-left: 20px;
     background: dodgerblue;
@@ -286,34 +337,14 @@
     float: left;
     background: transparent;
     min-width: 150px;
+    flex: 1;
     display: flex;
-    color: #878787;
+    color: black;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 10px;
     font-size: 16px;
     border: none;
-}
-
-
-.create-cc {
-
-}
-
-.create-subject {
-
-}
-
-.create-subject-cont {
-
-}
-
-.create-attach-icon {
-
-}
-
-.create-big-input {
-
 }
 
 .attach {
@@ -325,10 +356,9 @@
     margin-bottom: auto;
 }
 
-.OpenMsg-content, .NewMsg-content, .ReplyMsg-content,
-.header-dropdown, .photo-grid, .preview-image{
+.Attachment, .OpenMsg-content, .NewMsg-content, .ReplyMsg-content, .photo-grid, .preview-image {
     position: relative;
-    top: 47px;
+    top: 70px;
     z-index: 0;
 }
 
@@ -345,7 +375,8 @@
     background: transparent;
     display: flex;
     margin-top: auto;
-    margin-bottom: auto ;
+    flex:1;
+    margin-bottom: auto;
     margin-left: 20px;
     font-size: 16px;
     border: none;
@@ -378,10 +409,20 @@
 }
 
 .msg-previous {
-    min-width: 300px;
+    width: 90%;
     border: none;
-    min-height: 50%;
-    margin: 20px;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 300px;
+    resize: none;
+    font-size: 16px;
+    margin: 20px
 }
 
 .msg-contact-item {
@@ -444,9 +485,9 @@
 }
 
 .preview-content {
-    height: 475px;
+    height: 500px;
     width: 80%;
-    background: red;
+    background: blue;
     margin: 10%;
 }
 
@@ -455,12 +496,218 @@
 }
 
 .NewMsg-attachment {
+    height: 90px;
+    width: 100%;
+    margin-left: 0;
+    border-bottom: solid 1px #e9eaeb;
+    /* background: -webkit-linear-gradient(315deg, #eeeeee, white); */
+    /* background: linear-gradient(135deg, #eeeeee, white); */
+    margin-right: auto;
+    display: flex;
+    /* border-radius: 5px; */
+}
+
+.attached-pic {
+    height: 80%;
+    width: 20%;
+    margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: blue;
+
+}
+
+.attached-col2 {
+    margin-left: 20px;
+    flex: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.attach-row {
+    text-align: left;
+    font-size: 16px;
+}
+
+.attach-x {
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dropdown-div {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.dropdown-icon {
+    height: 30px;
+    width: 30px;
+}
+
+.dropdown-text {
+    font-size: 16px;
+}
+
+.subject-line {
+    height: 30px;
+    border-bottom: solid 2px #e9eaeb;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.open-message {
+    border-bottom: solid 2px #e9eaeb;
+    height: 100px;
+    display: flex;
+}
+
+.open-message-full {
+    border-bottom: solid 2px #e9eaeb;
+    height: 220px;
+}
+
+.open-icon {
+    height: 70px;
+    width: 70px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    background: dodgerblue;
+    border-radius: 50%;
+}
+
+.open-col2 {
+    margin-left: 10px;
+    margin-right: 20px;
+    flex: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.open-row1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.open-name {
+    font-size: 16px;
+    color: #7a7a7a;
+}
+
+.open-time {
+    font-size: 16px;
+    color: #6d6e6f;
+}
+
+.open-text {
+    font-size: 15px;
+    color: #7a7a7a;
+}
+
+.open-attachcnt {
+    height: 30px;
+    line-height: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 14px;
+    padding-left: 20px;
+    border-bottom: solid 2px #e9eaeb;
+    color: #7a7a7a;
+}
+
+.open-attachment {
+    height: 90px;
+    border-bottom: solid 2px #e9eaeb;
+    color: #7a7a7a;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.attach-icon {
+    margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
     height: 50px;
-    width: 80%;
-    margin: auto;
-    border: solid 1px grey ;
+    width: 50px;
+    background: #1bbd9e;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: tan;
+}
+
+.attach-text {
+    color: dodgerblue;
+    font-size: 25px;
+    flex: 1;
+    margin-bottom: auto;
+    margin-left: 10px;
+    font-weight: bold;
+    margin-top: auto;
+    margin-right: 20px;
+}
+
+.open-action-row {
+    height: 90px;
+    display: flex;
+    border-bottom: solid 2px #e9eaeb;
+}
+
+.open-action-reply, .open-action-fwd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-top: 30px;
+    justify-content: center;
+    text-align: center;
+    border-right: 1px #040404 solid;
+}
+
+.open-full-row1 {
+    display: flex;
+    margin-top: 15px;
+}
+
+.open-full-row-2 {
+    height: 80px;
+    justify-content: center;
+    /* flex: 1; */
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.open-reply {
+    font-size: 16px;
+    line-height: 16px;
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.open-other {
+    font-size: 14px;
+}
+
+@-webkit-keyframes slide {
+    0% {
+
+        margin-left: 100%;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@keyframes slide {
+    0% {
+        margin-left: 100%;
+    }
+    100% {
+        margin-left: 0%;
+    }
 }

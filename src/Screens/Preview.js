@@ -8,7 +8,7 @@ class Preview extends Component {
             <div className="Preview">
                 <div className="header">
                     <div className="header-arrow" onClick={() => this.props.goTo("AttachPhoto")}> Back</div>
-                    <div className="header-send" onClick={() => this.props.goTo("NewMsg", true)}> Attach</div>
+                    <div className="header-send" onClick={() => this.props.goTo("NewMsg", true)}> Use</div>
                 </div>
                 <div className="preview-image">
                     <div className="preview-content"></div>

@@ -25,8 +25,7 @@ class AttachPhoto extends Component {
 
     render() {
         return (
-            <div className="inbox">
-                Inbox
+            <div className="AttachPhoto">
                 <div className="header">
                     <div className="header-title"> Photo Roll</div>
                     <div className="header-cancel" onClick={() => this.props.goTo("NewMsg")}> Back</div>

@@ -8,11 +8,11 @@ class ViewAttach extends Component {
                 <div className="header">
                     <div className="header-arrow" onClick={() => this.props.goTo(null)}> Mail</div>
                 </div>
-                <div className="attachment">
+                <div className="Attachment">
                     Attachment Image
                 </div>
                 <div className="footer">
-                    <div className="footer-icon" onClick={() => this.props.goTo("Inbox")}> Download</div>
+                    <div className="footer-icon" onClick={() => this.props.goTo("Inbox")}> D</div>
                 </div>
             </div>
         );
