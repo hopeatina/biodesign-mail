@@ -13,10 +13,6 @@ class NewMsg extends Component {
             showto: false,
             showchip: false
         };
-        // this.handleSubjChange = this.handleSubjChange.bind(this);
-        // this.handleBigChange = this.handleBigChange.bind(this);
-        // this.handleCcChange = this.handleCcChange(this);
-        // this.handleToChange = this.handleToChange.bind(this);
     }
 
     handleBigChange(event) {

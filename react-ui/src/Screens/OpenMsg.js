@@ -72,7 +72,7 @@ class OpenMsg extends Component {
                             <div className="open-col2">
                                 <div className="open-row1">
                                     <div className="open-name">Laura Williams</div>
-                                    <div className="open-reply" onClick={() => this.props.goTo("ReplyMsg")}> Reply</div>
+                                    <div className="open-reply" onClick={() => this.props.goTo("ReplyMsg", 'sent')}> Reply</div>
                                 </div>
                                 <div className="open-other">to Billy Kiely
                                     <div className="open-other-small"> 15 seconds Ago</div>

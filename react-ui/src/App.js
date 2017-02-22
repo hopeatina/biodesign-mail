@@ -42,6 +42,29 @@ class App extends Component {
         this.goTo("NewMsg", false);
     }
 
+    checkMessage(data) {
+
+        var message = null;
+        switch(data){
+            case 'archive':
+                message = 'Your message was archived';
+                break;
+            case 'delete':
+                message = 'Your message was deleted';
+                break;
+            case 'sent':
+                message = 'Your message was sent';
+                break;
+            case 'move':
+                message = 'Your message was moved to Spam';
+                break;
+            default :
+                message = null;
+        }
+
+        return message;
+    }
+
     // handleSubjChange = (event) => {
     //     value={this.state.subjvalue}
     //     handlers={this.handleSubjChange}
@@ -55,8 +78,9 @@ class App extends Component {
                 selected = <div className="wrap-div"><OpenMsg goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "Inbox":
+                var message = this.checkMessage(data);
                 selected = <div>
-                    <Inbox openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/></div>;
+                    <Inbox msg={message} openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "AttachPhoto":
                 selected = <div className="wrap-div"><AttachPhoto goTo={this.goTo.bind(this)}/></div>;
