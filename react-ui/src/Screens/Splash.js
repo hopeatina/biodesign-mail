@@ -5,7 +5,7 @@ class Splash extends Component {
     render() {
         return (
             <div className="Splash">
-                Splash
+                <div className="biodesign-logo"> Logo</div>
             </div>
         );
     }

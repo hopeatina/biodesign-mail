@@ -3,6 +3,25 @@
 
     /*animation-delay: 2s;*/
 }
+.Splash {
+    background: #1bbd9e;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.biodesign-logo {
+    background: white;
+    border-radius: 10px;
+    height: 200px;
+    width: 200px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    box-shadow: 0px 0px 1px 0px black;
+    margin: auto;
+}
 
 .sidebar {
     background: #34313a;
@@ -31,6 +50,7 @@
     margin-bottom: auto;
     height: 40px;
     line-height: 40px;
+    background: #34313a;
 }
 
 .header {
@@ -57,10 +77,16 @@
 .header-icon {
     height: 40px;
     width: 40px;
-    background: dodgerblue;
     margin-right: 20px;
 }
-
+.header-font {
+    font-size: 28px;
+    color: gray;
+}
+.header-font-x {
+    font-size: 28px;
+    color: dodgerblue;
+}
 .header-sidebar, .header-arrow, .header-close,
 .header-send, .header-cancel, .header-icon {
     display: flex;
@@ -78,6 +104,7 @@
 
 .header-createmsg {
     display: flex;
+    font-size: 18px;
     margin-top: auto;
     margin-bottom: auto
 }
@@ -118,8 +145,10 @@
     justify-content: space-around;
     position: fixed;
     top: 70px;
-    z-index: 0;
+    z-index: 2;
 }
+
+
 
 .header-col2 {
     flex: 1;
@@ -157,7 +186,6 @@
     margin-top: auto;
     margin-bottom: auto;
     /* float: right; */
-    background: grey;
 }
 
 .search {
@@ -176,7 +204,6 @@
 .search-icon {
     height: 30px;
     width: 30px;
-    background: #e9eaeb;
     margin-left: 20px;
     float: left;
     display: flex;
@@ -187,7 +214,6 @@
 .search-close {
     height: 30px;
     width: 30px;
-    background: #e9eaeb;
     margin-right: 20px;
     float: right;
     display: flex;
@@ -304,13 +330,14 @@
 
 .Attachment {
     height: 67%;
-    background: dodgerblue;
+    width: 90%;
+    /* background: dodgerblue; */
     min-height: 73%;
-    margin-top: 20px;
-    margin-bottom: 90px;
-    margin-left: 20px;
+    margin-top: 16px;
+    margin-bottom: 0px;
+    margin-left: 5%;
     background: dodgerblue;
-    margin-right: 20px;
+    margin-right: 5%;
 }
 
 .Inbox {
@@ -322,6 +349,41 @@
     position: relative;
     top: 70px;
     z-index: 0;
+}
+
+.inbox-notif {
+    z-index: 1;
+    position: fixed;
+    margin-left: 5%;
+    color: white;
+    margin-right: 5%;
+    bottom: 20px;
+    height: 40px;
+    font-size: 16px;
+    width: 90%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background: #ffb115;
+    box-shadow: 0px 2px 4px 1px #b77912
+}
+
+.inbox-notif-icon {
+    margin-right: 20px;
+    color: white;
+    padding-left: 20px;
+    border-left: solid #bb8c2f 1px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 26px;
+}
+
+.inbox-notif-text {
+    flex: 1;
+    line-height: 40px;
+    font-size: 14px;
+    margin-left: 20px;
 }
 
 .create-front {
@@ -349,11 +411,16 @@
 
 .attach {
     float: right;
+    font-weight: bold;
     display: flex;
     margin-right: 20px;
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.attach-blue {
+    color: dodgerblue;
 }
 
 .Attachment, .OpenMsg-content, .NewMsg-content, .ReplyMsg-content, .photo-grid, .preview-image {
@@ -536,13 +603,29 @@
 }
 
 .dropdown-div {
+    display: flex;
     margin-top: auto;
     margin-bottom: auto;
+    justify-content: center;
+    flex: 1;
 }
 
 .dropdown-icon {
     height: 30px;
     width: 30px;
+}
+
+.open-head-icon {
+    font-size: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.open-head-blue{
+    font-size: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: dodgerblue;
 }
 
 .dropdown-text {
@@ -661,6 +744,7 @@
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    background: rgba(220, 220, 220, 0.26);
     padding-top: 30px;
     justify-content: center;
     text-align: center;
@@ -704,9 +788,9 @@
 
 @keyframes slide {
     0% {
-        margin-left: 100%;
+        transform: translateX(100%);
     }
     100% {
-        margin-left: 0%;
+        transform: translateX(0%);
     }
 }

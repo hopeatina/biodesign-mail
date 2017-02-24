@@ -31,6 +31,10 @@ class FwdMsg extends Component {
         this.setState({subjvalue: event.target.value});
     }
 
+    getState() {
+        return this.state
+    }
+
     toggleSelection(choice) {
 
         if (choice == 'show') {
@@ -73,7 +77,7 @@ class FwdMsg extends Component {
                     <div className="msg-row" onClick={() => this.toggleSelection('open')}>
                         <div className="create-front"> To:</div>
                         { this.state.showchip ?
-                            <div onClick={ () => this.hideChip()} className="contact-chip"> Person 1</div> : null }
+                            <div onClick={ () => this.hideChip()} className="contact-chip"> Premal </div> : null }
                         <input value={this.state.tovalue} onChange={this.handleToChange.bind(this)}
                                className="contact-input"></input>
                         <div className="attach" onClick={() => this.toggleSelection('')}> +</div>
@@ -81,17 +85,19 @@ class FwdMsg extends Component {
                     { this.state.showto ?
                         <div className="msg-contacts" onClick={() => this.toggleSelection('close')}>
                             <div className="msg-contact-item" onClick={ () => this.showChip()}>
-                                <div className="msg-contact-icon"></div>
+                                <img className="msg-contact-icon"
+                                     src="http://www.tmc.edu/innovation/wp-content/uploads/sites/4/2016/04/Premal-Kamdar--250x250.jpg"></img>
                                 <div className="msg-contact-col2">
-                                    <div className="msg-contact-name"> Person 1</div>
-                                    <div className="msg-contact-email"> person1@gmail.com</div>
+                                    <div className="msg-contact-name"> Premal</div>
+                                    <div className="msg-contact-email"> premal@gmail.com</div>
                                 </div>
                             </div>
                             <div className="msg-contact-item" onClick={ () => this.showChip()}>
-                                <div className="msg-contact-icon"></div>
+                                <img className="msg-contact-icon"
+                                     src="http://www.tmc.edu/innovation/wp-content/uploads/sites/4/2016/04/Victor-Bornstein--250x250.png"></img>
                                 <div className="msg-contact-col2">
-                                    <div className="msg-contact-name"> Person 1</div>
-                                    <div className="msg-contact-email"> person1@gmail.com</div>
+                                    <div className="msg-contact-name"> Victor</div>
+                                    <div className="msg-contact-email"> victor@gmail.com</div>
                                 </div>
                             </div>
 
@@ -107,7 +113,9 @@ class FwdMsg extends Component {
                         <input type="text" name="Subject" title="Subject" value={this.state.subjvalue}
                                onChange={this.handleSubjChange.bind(this)}
                                className="create-input"></input>
-                        <div className="attach" onClick={() => this.props.goTo("AttachPhoto")}>Attach</div>
+                        <div className="attach" onClick={() => this.props.goTo("AttachPhoto")}>
+                            <div className="fa fa-paperclip"></div>
+                        </div>
                     </div>
                     { this.props.showAttach ? <div className="NewMsg-attachment">
                         <div className="attached-pic"></div>

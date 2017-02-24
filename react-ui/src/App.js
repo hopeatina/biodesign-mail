@@ -11,7 +11,8 @@ import Preview from './Screens/Preview';
 import ReplyMsg from './Screens/ReplyMsg';
 import ViewAttach from './Screens/ViewAttach';
 var Sidebar = require('react-sidebar').default;
-import SideContent from './Screens/SideBar'
+import SideContent from './Screens/SideBar';
+import Splash from './Screens/Splash';
 
 
 const sidestyles = {
@@ -21,17 +22,24 @@ const sidestyles = {
     overlay: {zIndex: 5},
     dragHandle: {zIndex: 5},
 };
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            // current: <Splash/>,
             current: <div className="wrap-div">
                 <Inbox openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/>
             </div>,
             previous: null,
             sidebarOpen: false,
-            subjvalue: ' '
+            subjvalue: ' ',
+            inboxnotif: null,
+            closed: true,
+            inputdata: null
         };
+
+        this.closeNotif = this.closeNotif.bind(this);
     }
 
     onSetSidebarOpen(open) {
@@ -45,7 +53,7 @@ class App extends Component {
     checkMessage(data) {
 
         var message = null;
-        switch(data){
+        switch (data) {
             case 'archive':
                 message = 'Your message was archived';
                 break;
@@ -56,20 +64,46 @@ class App extends Component {
                 message = 'Your message was sent';
                 break;
             case 'move':
-                message = 'Your message was moved to Spam';
+                message = 'Conversation has been moved';
+                break;
+            case 'spam':
+                message = 'Your message was marked as spam';
+                break;
+            case 'read':
+                message = 'Conversation marked as unread';
                 break;
             default :
                 message = null;
         }
+        console.log("message and state updated");
 
         return message;
     }
 
-    // handleSubjChange = (event) => {
-    //     value={this.state.subjvalue}
-    //     handlers={this.handleSubjChange}
-    //     this.setState({subjvalue: event.target.value});
-    // };
+    closeNotif() {
+
+        this.setState({
+            closed: false
+        });
+        console.log(this.state.closed);
+    }
+
+    handleNotif(message) {
+        console.log(message);
+        return (message != null ) ?
+            <div className="inbox-notif">
+                <div className="inbox-notif-text">{message}</div>
+                <div className="inbox-notif-icon" onClick={() => this.goTo("Inbox", null)}>
+                    <image className="fa fa-times" aria-hidden="true"></image>
+                </div>
+            </div> : null;
+    }
+//     saveFwdData(){
+//         var curstate = this.refs.fwd.getState();
+//         this.setState({
+//             inputdata: curstate
+//         )};
+// }
 
     goTo(page, data) {
         var selected = null;
@@ -79,8 +113,12 @@ class App extends Component {
                 break;
             case "Inbox":
                 var message = this.checkMessage(data);
+
                 selected = <div>
-                    <Inbox msg={message} openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/></div>;
+                    <Inbox closeNotif={this.closeNotif.bind(this)} msg={data}
+                           openSide={this.onSetSidebarOpen.bind(this)} goTo={this.goTo.bind(this)}/>
+                    { this.handleNotif(message)  }
+                </div>;
                 break;
             case "AttachPhoto":
                 selected = <div className="wrap-div"><AttachPhoto goTo={this.goTo.bind(this)}/></div>;
@@ -94,8 +132,8 @@ class App extends Component {
             case "NewMsg":
                 selected =
                     <div className="wrap-div"><NewMsg
-                                                      removeAttachment={this.removeAttachment.bind(this)}
-                                                      showAttach={data} goTo={this.goTo.bind(this)}/></div>;
+                        removeAttachment={this.removeAttachment.bind(this)}
+                        showAttach={data} goTo={this.goTo.bind(this)}/></div>;
                 break;
             case "Preview":
                 selected = <div className="wrap-div"><Preview goTo={this.goTo.bind(this)}/></div>;
@@ -111,8 +149,11 @@ class App extends Component {
         }
         this.setState({
             current: selected,
-            previous: this.state.current
-        })
+            previous: this.state.current,
+            closed: true
+        });
+
+        console.log(this.state);
     }
 
     checkPage() {
